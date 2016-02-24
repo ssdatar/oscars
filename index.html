@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="/data.js"></script>
+	</head>
+
+	<body>
+		<div class="question-container">
+		</div>
+
+		<div class="answer-container">
+			
+		</div>
+		<script>
+
+		var questionList = [{"answer":"12 Years A Slave","question":"In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery."},
+		{"answer":"The Sound of Music","question":"A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower."},
+		{"answer":"The Sting","question":"In Chicago in September 1936, a young con man seeking revenge for his murdered partner teams up with a master of the big con to win a fortune from a criminal banker."},
+		{"answer":"Gladiator","question":"When a Roman general is betrayed and his family murdered by an emperor's corrupt son, he comes to Rome as a gladiator to seek revenge."}];
+
+		var currentQuestion = 0;
+		var total = 0;
+		var finishedQuiz = false;
+
+		$(document).ready(function() {
+			displayQuestion(currentQuestion);
+
+			$('input').on('keydown', function(e) {
+				if(e.which === 13) {
+					var userAnswer = this.value;
+					//console.log(userAnswer);
+				}
+
+				if (userAnswer.toLowerCase() === questionList[currentQuestion].answer) {
+					currentQuestion += 1;
+					total += 1;
+				}
+
+				if (currentQuestion < questionList.length) {
+					displayQuestion(currentQuestion);
+				}
+			});	 
+
+		});
+
+		function displayQuestion(currentQuestion) {
+			if(currentQuestion === 0) {
+				$('.question-container').html('<p>' + questionList[currentQuestion].question + '</p>');
+				$('.answer-container').append('<input type="text" name="answer" placeholder="Type and press enter">');
+			} else {
+				$('p').remove();
+				$('input').val('');
+				$('.question-container').html('<p' + questionList[currentQuestion].question + '</p>');
+				$('.answer-container').append('<input type="text" name="answer" placeholder="Type your answer, press enter">');
+			}
+				
+		}
+
+		</script>
+	</body>
+</html>
