@@ -9,6 +9,8 @@
 		<div class="question-container">
 		</div>
 
+		<h3></h3>
+
 		<div class="answer-container">
 			
 		</div>
@@ -18,44 +20,81 @@
 		{"answer":"The Sound of Music","question":"A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower."},
 		{"answer":"The Sting","question":"In Chicago in September 1936, a young con man seeking revenge for his murdered partner teams up with a master of the big con to win a fortune from a criminal banker."},
 		{"answer":"Gladiator","question":"When a Roman general is betrayed and his family murdered by an emperor's corrupt son, he comes to Rome as a gladiator to seek revenge."}];
-
-		var currentQuestion = 0;
+		
 		var total = 0;
-		var finishedQuiz = false;
+		var finishedQuiz = false;		
 
 		$(document).ready(function() {
-			displayQuestion(currentQuestion);
+			var currentQuestion = 0;
+			var timer = 30;
+			var timeout = null;
+			
+			displayQuestion(currentQuestion, timer);
+			countdown(20, 1000);			
 
 			$('input').on('keydown', function(e) {
-				if(e.which === 13) {
-					var userAnswer = this.value;
-					//console.log(userAnswer);
-				}
+				var userAnswer;		
 
-				if (userAnswer.toLowerCase() === questionList[currentQuestion].answer) {
-					currentQuestion += 1;
-					total += 1;
-				}
+				if(e.which == 13) {
+					userAnswer = this.value;
+					console.log(userAnswer);
 
-				if (currentQuestion < questionList.length) {
-					displayQuestion(currentQuestion);
+					if (userAnswer.toLowerCase() == questionList[currentQuestion].answer.toLowerCase()) {
+						currentQuestion += 1;
+						total += 1;
+						timer += 10;
+					}
+					console.log(total);
+					if (currentQuestion < questionList.length) {
+						displayQuestion(currentQuestion);
+						countdown(timer, 1000);
+					}
 				}
-			});	 
-
-		});
+			});
 
 		function displayQuestion(currentQuestion) {
+			console.log(timer);
 			if(currentQuestion === 0) {
 				$('.question-container').html('<p>' + questionList[currentQuestion].question + '</p>');
 				$('.answer-container').append('<input type="text" name="answer" placeholder="Type and press enter">');
+				//$('h3').text(timer);
+
+				
+				
+				// setInterval(function() {
+				// 	timer--;
+				// 	if(timer >= 0) { $('h3').text(timer); }
+				// }, 1000);
+
 			} else {
-				$('p').remove();
 				$('input').val('');
-				$('.question-container').html('<p' + questionList[currentQuestion].question + '</p>');
-				$('.answer-container').append('<input type="text" name="answer" placeholder="Type your answer, press enter">');
+				$('.question-container p').text(questionList[currentQuestion].question);
+
+				//countdown()
+				
+				// setInterval(function() {
+				// 	timer--;
+				// 	if(timer >= 0) { 
+				// 		//$('h3').text();
+				// 		$('h3').text(timer); 
+				// 	}
+				// }, 1000);
 			}
 				
 		}
+
+		function countdown(start, step) {
+			var startTime = start;
+			$('h3').text(startTime);
+
+			clearTimeout(null);
+			timeout = setTimeout( function () {
+				countdown(startTime - 1, step);
+			});
+			
+		}
+		
+	});	
 
 		</script>
 	</body>
