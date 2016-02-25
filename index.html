@@ -7,7 +7,10 @@
 
 	<body>
 		<div class="question-container">
+			
 		</div>
+
+		<p id="message">Sorry, wrong answer</p>
 
 		<h3></h3>
 
@@ -26,45 +29,67 @@
 
 		$(document).ready(function() {
 			var currentQuestion = 0;
-			var timer = 30;
+			var timer = 5;
 			var timeout = null;
 			
+			//Display first question
 			displayQuestion(currentQuestion, timer);
-			countdown(20, 1000);			
+			//countdown(20, 1000);
+			$('#message').hide();		
 
 			$('input').on('keydown', function(e) {
 				var userAnswer;		
 
+				//when user presses enter
 				if(e.which == 13) {
-					userAnswer = this.value;
-					console.log(userAnswer);
+					//capture user input
+					userAnswer = this.value.toLowerCase();
+					//console.log(userAnswer);
 
-					if (userAnswer.toLowerCase() == questionList[currentQuestion].answer.toLowerCase()) {
+					//check if answer matches
+					if (userAnswer === questionList[currentQuestion].answer.toLowerCase()) {
 						currentQuestion += 1;
-						total += 1;
-						timer += 10;
+						total += 1;			//increase score
+						timer += 10;		//add time
+
+						//if more questions remain, display the next question
+						if (currentQuestion < questionList.length) {
+							displayQuestion(currentQuestion, timer);
+							//countdown(timer, 1000);
+						} else {
+							alert('Quiz over');
+						}
+
+					} else { // show user they are wrong.
+						//console.log('Sorry wrong answer');
+
+						$('input').val('');						
+						$('#message').show();
+						
+						setTimeout( function() {
+							$('#message').hide();
+						}, 1200);
+						
 					}
-					console.log(total);
-					if (currentQuestion < questionList.length) {
-						displayQuestion(currentQuestion);
-						countdown(timer, 1000);
-					}
+					
 				}
 			});
 
-		function displayQuestion(currentQuestion) {
-			console.log(timer);
+		function displayQuestion(currentQuestion, timer) {
+			//console.log(timer);
 			if(currentQuestion === 0) {
 				$('.question-container').html('<p>' + questionList[currentQuestion].question + '</p>');
 				$('.answer-container').append('<input type="text" name="answer" placeholder="Type and press enter">');
 				//$('h3').text(timer);
 
-				
-				
-				// setInterval(function() {
-				// 	timer--;
-				// 	if(timer >= 0) { $('h3').text(timer); }
-				// }, 1000);
+				var countdown = setInterval(function() {
+					timer--;
+					if(timer >= 0) { $('h3').text(timer); }
+
+					if (timer == 0) {
+						$('body').append('<h1>game over</h1>');
+					}
+				}, 1000);
 
 			} else {
 				$('input').val('');
@@ -72,27 +97,33 @@
 
 				//countdown()
 				
-				// setInterval(function() {
-				// 	timer--;
-				// 	if(timer >= 0) { 
-				// 		//$('h3').text();
-				// 		$('h3').text(timer); 
-				// 	}
-				// }, 1000);
+				//clearInterval(countdown);
+				
+				setInterval(function() {
+					timer--;
+					if(timer >= 0) { 
+						//$('h3').empty();
+						$('h3').text(timer); 
+					}
+
+					if (timer == 0) {
+						$('body').append('<h1>game over</h1>');
+					}
+				}, 1000);
 			}
 				
 		}
 
-		function countdown(start, step) {
-			var startTime = start;
-			$('h3').text(startTime);
+		// function countdown(start, step) {
+		// 	var startTime = start;
+		// 	$('h3').text(startTime);
 
-			clearTimeout(null);
-			timeout = setTimeout( function () {
-				countdown(startTime - 1, step);
-			});
+		// 	clearTimeout(null);
+		// 	timeout = setTimeout( function () {
+		// 		countdown(startTime - 1, step);
+		// 	});
 			
-		}
+		// }
 		
 	});	
 
