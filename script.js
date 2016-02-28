@@ -1,18 +1,47 @@
-var questionList = data;
+/* ---------
+	DECLARE SHUFFLE FUNCTION
+	-----------*/
+//http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+/* ----------------
+	DECLARE VARIABLES
+------------------*/
+
+var questionList = shuffle(data);
 
 var total = 0;
 var timer = 20;
 
+
 $(document).ready(function() {
 	var currentQuestion = 0;
+	var newQuestionList;
 
 	/* ---------
 	DECLARE DISPLAY FUNCTION
 	-----------*/
 
-	function displayQuestion(currentQuestion) {
+	function displayQuestion(questionArray, currentQuestion) {
 		$('input').val('');
-		$('#question').text(questionList[currentQuestion].question);	
+		$('#question').text(questionArray[currentQuestion].question);	
 	}
 	/*------------*/
 
@@ -34,7 +63,7 @@ $(document).ready(function() {
 		$('#landing').hide();
 		
 		//Display first question
-		displayQuestion(currentQuestion);
+		displayQuestion(questionList, currentQuestion);
 		$('#question-row').show();
 		$('#answer-row').show();
 		$('.img-wrapper').hide(); //not working
@@ -63,6 +92,7 @@ $(document).ready(function() {
 				$('#again').show().on('click', function(){
 					currentQuestion = 0;
 					timer = 20;
+					newQuestionList = shuffle(data);
 
 					//Hide game over message
 					$('#over').hide();
@@ -73,7 +103,7 @@ $(document).ready(function() {
 					//Hide 'Play again' button
 					$('#again').hide();
 
-					displayQuestion(currentQuestion);
+					displayQuestion(newQuestionList, currentQuestion);
 					$('#question').show();
 					$('#timer').show();
 					$('input').show();
@@ -102,7 +132,7 @@ $(document).ready(function() {
 
 					//if more questions remain, display the next question
 					if (currentQuestion < questionList.length) {
-						displayQuestion(currentQuestion);
+						displayQuestion(questionList, currentQuestion);
 					} else {
 						//Display score
 						// $('#share-row').show();
