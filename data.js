@@ -2,7 +2,7 @@ var data = [
 	{"answer":"12 Years A Slave","question":"In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery."},
 	{"answer":"The Sound of Music","question":"A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower."},
 	{"answer":"The Sting","question":"In Chicago in September 1936, a young con man seeking revenge for his murdered partner teams up with a master of the big con to win a fortune from a criminal banker."},
-	{"answer":"Gladiator","question":"When a Roman general is betrayed and his family murdered by an emperor's corrupt son, he comes to Rome to seek revenge."},
+	{"answer":"Gladiator","question":"When a Roman general is betrayed and his family murdered by an emperor's corrupt son, he comes to Rome mutto seek revenge."},
 	{"answer":"Grand Hotel","question":"A group of very different individuals staying at a luxurious hotel in Berlin deal with each of their respective dramas."},
 	{"answer":"All About Eve","question":"An ingenue insinuates herself into the company of an established but aging stage actress and her circle of theater friends."},
 	{"answer":"It Happened One Night","question":"A spoiled heiress, running away from her family, is helped by a man who is actually a reporter in need of a story."},
@@ -18,7 +18,7 @@ var data = [
 	{"answer":"Hamlet","question":"A Danish prince struggles over whether or not he should kill his uncle, whom he suspects has murdered his father, the former king."},
 	{"answer":"How Green Was My Valley","question":"At the turn of the century in a Welsh mining village, a family raises coal-mining sons and hope their youngest will find a better life."},
 	{"answer":"The Apartment","question":"A man tries to rise in his company by letting its executives use his apartment for trysts, but complications and a romance of his own ensue."},
-	{"answer":"The Godfather Part II","question":"The early life and career of a gangster in 1920s New York is portrayed while his son expands and tightens his grip on his crime syndicate"},
+	{"answer":"The Godfather 2","question":"The early life and career of a gangster in 1920s New York is portrayed while his son expands and tightens his grip on his crime syndicate"},
 	{"answer":"The Bridge on the River Kwai","question":"After settling his differences with a Japanese PoW camp commander, a British colonel co-operates to oversee his men's construction of a railway bridge for their captors - while oblivious to a plan by the Allies to destroy it."},
 	{"answer":"In the Heat of the Night","question":"An African American police detective is asked to investigate a murder in a racially hostile southern town."},
 	{"answer":"Going My Way","question":"A youthful Father who has led a colorful life of sports, song, and romance before joining the Roman Catholic clergy, is met with skepticism. But he inspires the youth of his parish and transform it completely"},
@@ -88,5 +88,31 @@ var data = [
 	{"answer":"Ordinary People","question":"The accidental death of the older son of an affluent family deeply strains the relationships among the bitter mother, the good-natured father, and the guilt-ridden younger son."}
 ];
 
-var scoreGifs = [
-];
+var last = 'http://49.media.tumblr.com/ede62d117e26ffe702af74dbd48213c4/tumblr_n13zic8aQK1sztll3o1_400.gif';
+
+var leoGifs = ['http://49.media.tumblr.com/2c5090eb4a9755a78f5f7052f4046024/tumblr_n8o1rgjN8P1ttghbto8_250.gif',
+				'http://45.media.tumblr.com/d345a00017dcc3f68784635ccc036359/tumblr_mus1evczrq1spk3foo1_250.gif',
+				'http://45.media.tumblr.com/9c1b50e0db5858d4288f92438d92352b/tumblr_n7dwtrql961rl33l5o1_500.gif',
+				'http://45.media.tumblr.com/tumblr_m2u8extdTi1r3wk77o2_500.gif',
+				'http://38.media.tumblr.com/4a2d68f177f9651373c04fe845c44907/tumblr_n8hnl56dlS1sfoav0o1_500.gif',
+				'http://38.media.tumblr.com/7c8b1209a4ae493443cdf2266094220c/tumblr_nlhlhdP2Od1u9x7l6o1_500.gif',
+				'http://37.media.tumblr.com/4efe2667ea34d0b44ecb121b1f708f5c/tumblr_nawh2oKNwN1tiorito1_500.gif',
+				'http://24.media.tumblr.com/01bd89810d8df0f42dd7b683d50729ff/tumblr_n2ypoxqbFu1s9ab4to1_500.gif',
+				'http://25.media.tumblr.com/8fdbbcb240cc7461f290530c7aeaf336/tumblr_n0x034Xz6S1sk81sjo1_250.gif',
+				'http://37.media.tumblr.com/5b976bd3c93a46553b0c0f33dff53727/tumblr_n29g26VpiJ1rijbg1o1_500.gif',
+				'http://49.media.tumblr.com/a805797b4068a370e8f6ac76be7b78c1/tumblr_o0rsoau26e1r1q21qo1_500.gif',
+				'http://24.media.tumblr.com/46ba7bf410ba410dc7b57b33e5bcf32c/tumblr_n023f2QFVF1r97o1mo1_500.gif',
+				'http://24.media.tumblr.com/fee3cd65beefd70d020dc466c9f5c39e/tumblr_mygzhr0o1j1r3fkfio1_500.gif',
+				'http://38.media.tumblr.com/e2e6c916bbeadda65af3209bca88405d/tumblr_nsiyuy6XgN1ruqjbeo1_400.gif',
+				'http://37.media.tumblr.com/39258af9ee50deced76f915cd0dd8c42/tumblr_n3ckbaBQLO1sfoav0o1_500.gif',
+				'http://24.media.tumblr.com/215b219f4e556afc2ffb1408b0aa89be/tumblr_mkqmm5VsYE1qagmv6o1_500.gif',
+				'http://25.media.tumblr.com/27f1d1b0a839c0bec08755002ef19a17/tumblr_mrqqk1tzyX1sx80b0o1_500.gif',
+				'http://25.media.tumblr.com/797fac0ebcc33849fef2e2b365ed7985/tumblr_mn1zd0Ghjn1srtlkoo1_500.gif',
+				'http://31.media.tumblr.com/ba7341a40fb23e1d4a1d3264849d4063/tumblr_msyc4uveWv1selx09o1_500.gif',
+				'http://31.media.tumblr.com/dab134b948ab47dc597a5743ea73057e/tumblr_molhnnx0dB1r4q6qoo1_400.gif',
+				'http://25.media.tumblr.com/30bf2cf14f7c96c28d44dbced23f03b4/tumblr_mm8lyq4Sa51qf5do9o1_400.gif',
+				'http://31.media.tumblr.com/a7dbfacd366ab03cadafe1a8faa6a275/tumblr_meuue4EJAm1rd11tco1_1280.gif',
+				'http://31.media.tumblr.com/a3e213403f4b45917cd365c783d9b894/tumblr_mqsefuP9q61r8q1s0o1_250.gif',
+				'http://31.media.tumblr.com/1d379527df97681dd8b71ebf207c71d4/tumblr_mrvls9lnVk1rfm6lno1_500.gif',
+				'http://25.media.tumblr.com/916e8ee5e2da790ebe5d3a79d7fb1d10/tumblr_mnqkytpqyS1so9fmco1_500.gif',
+				];
