@@ -118,7 +118,7 @@ $(document).ready(function() {
 				} else { 
 				// show user they are wrong.
 					$('input').val('');						
-					$('#message').show();
+					$('#message').show().delay(1200).hide();
 				}
 			}
 
