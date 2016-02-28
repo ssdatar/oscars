@@ -12,6 +12,10 @@ body {
 	text-align: center;
 }
 
+.row {
+	text-align: center;
+}
+
 .jumbotron {
 	background-color: #efc700;
 	color: #545454;
@@ -19,11 +23,11 @@ body {
 
 .answer-container {
 	text-align: center;
-	padding: 20px;
+	padding: 20px 15px 20px 15px;
 }
 
 .question-container{
-	padding: 20px;
+	padding: 20px 15px 20px 15px;
 }
 
 input, button {
@@ -33,6 +37,7 @@ input, button {
 .landing-container {
 	padding: 20px;
 	text-align: center;
+	margin-left: 20px;
 }
 
 #rules-header {
@@ -48,8 +53,19 @@ li {
 	font-size: 20px;
 }
 
+#question {
+	text-align: center !important;
+}
+
+.input-group {
+	margin: 0 auto !important;
+	text-align: center !important;
+	position: absolute;
+}
+
 #over {
 	padding-bottom: 20px;
+	padding-left: 10px;
 }
 
 img {
@@ -67,3 +83,19 @@ footer {
 	bottom: 0;
 }
 
+/*http://stackoverflow.com/questions/7381446/center-html-input-text-field-placeholder*/
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
