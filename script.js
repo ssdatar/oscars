@@ -47,7 +47,7 @@ $(document).ready(function() {
 			timer--;
 			
 			if(timer >= 0) { 
-				$('#timer').text(timer); 
+				$('#timer').text('Time remaining: ' + timer); 
 			}
 
 			if (timer == 0) {
