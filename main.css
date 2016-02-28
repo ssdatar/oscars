@@ -99,3 +99,14 @@ footer {
 :-ms-input-placeholder {  
    text-align: center; 
 }
+
+.ui-autocomplete.ui-widget {
+	text-align: left;
+	font-size: 6px !important;
+	background-color: white;
+	width: 300px;
+}
+
+ul.ui-autocomplete { 
+	list-style-type: none;
+} 

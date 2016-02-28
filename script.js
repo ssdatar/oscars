@@ -114,13 +114,17 @@ $(document).ready(function() {
 			}
 		}, 1000);
 
-
 		/*-------------------
 		HANDLER FOR USER INPUT
-		-------------------*/		
+		-------------------*/
 
 		$('input').on('keydown', function(e) {
-			var userAnswer;		
+			var userAnswer;
+
+			$('input').autocomplete({
+				source: choices,
+				appendTo: '.answer-container'
+			});
 
 			//when user presses enter
 			if(e.which == 13) {
@@ -132,7 +136,7 @@ $(document).ready(function() {
 					currentQuestion += 1;
 					total += 1;			//increase score
 					timer += 10;		//add time
-					$('img').attr('src', leo[Math.floor(Math.random()*items.length)]);
+					$('img').attr('src', leo[Math.floor(Math.random()*leo.length)]);
 
 					//if more questions remain, display the next question
 					if (currentQuestion < questionList.length) {
