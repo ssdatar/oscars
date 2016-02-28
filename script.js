@@ -26,6 +26,7 @@ function shuffle(array) {
 ------------------*/
 
 var questionList = shuffle(data);
+var leo = shuffle(leoGifs);
 
 var total = 0;
 var timer = 20;
@@ -66,7 +67,8 @@ $(document).ready(function() {
 		displayQuestion(questionList, currentQuestion);
 		$('#question-row').show();
 		$('#answer-row').show();
-		$('.img-wrapper').hide(); //not working
+		$('img').attr('src', leo[0]);
+		$('.img-wrapper').show(); //not working
 
 		/* ---------
 		START TIMER
@@ -87,6 +89,7 @@ $(document).ready(function() {
 				
 				//Show final score
 				$('#over').text('Game over! You scored ' + total + ' points').show();
+				$('img').attr('src', last);
 				
 				//If user wants to play again
 				$('#again').show().on('click', function(){
@@ -129,6 +132,7 @@ $(document).ready(function() {
 					currentQuestion += 1;
 					total += 1;			//increase score
 					timer += 10;		//add time
+					$('img').attr('src', leo[Math.floor(Math.random()*items.length)]);
 
 					//if more questions remain, display the next question
 					if (currentQuestion < questionList.length) {
@@ -136,7 +140,7 @@ $(document).ready(function() {
 					} else {
 						//Display score
 						// $('#share-row').show();
-						$('.img-wrapper').show();
+						//$('.img-wrapper').show();
 						$('#over').text('Game over! You scored ' + total + ' points').show();
 
 						//$('.img-wrapper').show(); //not working
