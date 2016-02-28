@@ -23,8 +23,23 @@
 
 			<!-- </Quiz Title/header> -->
 			
+			<!-- landing instructions -->
+			<div class="row" id="landing">
+				<div class="landing-container col-md-8 col-md-push-2">
+					<h2 id="rules-header"> How well do you know your movies? </h2>					
+					<ul id="rules">
+						<li>It's simple. Each question is the IMDB synopsis of a Best Picture winner. You have to guess the movie.</li>
+						<li>The timer starts with 20 seconds. You get <strong> 10 seconds </strong> added to your time if you answer correctly.</li>
+						<li>Don't worry about your cases in your answer. Just make sure you don't forget space between words.</li>
+					</ul>
+					<button id="play">'Nuf talk. Bring it on!</button>
+				</div>
+			</div>
+			<!-- /instructions -->
+
+
 			<!-- <question> -->
-			<div class="row">
+			<div class="row" id="question-row">
 				<div class="question-container col-md-8 col-md-push-2">
 					<h4 id="question"></h4>
 				</div>
@@ -32,20 +47,45 @@
 			<!-- </question> -->
 
 			<!-- <answer input> -->
-			<div class="row">
+			<div class="row" id="answer-row">
 				<div class="answer-container col-md-6 col-md-push-2">
 					<input id="answer" type="text" name="answer" placeholder="Type and press enter"></input>
 					<div class="timer-container">
 						<h3 id="timer"></h3>
 					</div>
 					<p id="message">Sorry, wrong answer</p>
-					<h4 id="over">Game over</h4>
-					<button>Play again</button>
-				</div>	
+					<h2 id="over">Game over</h2>
+					<button id="again">Play again</button>
+					<div class="img-wrapper">
+						<img id="score-image" src="images/cry.gif">
+					</div>
+				</div>
 			</div>
 			<!-- </answer input> -->
-		
+
+			<div class="row" id="share-row">
+				<h3> Tweet your score!
+				<a class="twitter-share-button" href="#" id="twitter-button" data-size="large">Tweet</a></h3>
+			</div>	
 		</div>
 	<script type="text/javascript" src="/script.js"></script>
+	<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+	<!--script>
+		function (d, s, id) {
+		    var js, fjs = d.getElementsByTagName(s)[0],
+		        p = /^http:/.test(d.location) ? 'http' : 'https';
+		    
+		    if (!d.getElementById(id)) {
+		        js = d.createElement(s);
+		        js.id = id;
+		        js.src = p + '://platform.twitter.com/widgets.js';
+		        fjs.parentNode.insertBefore(js, fjs);
+		    }
+		}(document, 'script', 'twitter-wjs');
+		
+		var correct = total;
+		$("#twitter-button").attr("href", "https://twitter.com/intent/tweet?text=I got " 
+			+ correct + " on the quiz!");
+	</script-->
 	</body>
 </html>
