@@ -1,8 +1,12 @@
 body {
 	font-family: 'Lato', helvetica, sans-serif;
-	background-color: #666666;
-	color: white;
+	background-color: #ededed;
 }
+
+/*img {
+	width: 100px;
+	height: 100px;
+}*/
 
 #quiz-header {
 	text-align: center;
@@ -12,11 +16,6 @@ body {
 	background-color: #efc700;
 	color: #545454;
 }
-
-/*#timer {
-	text-align: center;
-}
-*/
 
 .answer-container {
 	text-align: center;
@@ -31,6 +30,34 @@ input, button {
 	color: black;
 }
 
-/*#question, #answer {
+.landing-container {
+	padding: 20px;
+	text-align: center;
+}
+
+#rules-header {
+	text-align: left;
+}
+
+#rules {
+	text-align: left;
 	padding: 10px;
-}*/
+}
+
+li {
+	font-size: 20px;
+}
+
+#over {
+	padding-bottom: 20px;
+}
+
+img {
+	padding: 20px;
+}
+
+#twitter-button {
+	padding: 20px;
+	position: relative;
+}
+
